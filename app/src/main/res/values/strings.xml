@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">DailyDevelopment4</string>
+    <string-array name="main_view_string_array">
+        <item>(1)</item>
+        <item>(2)</item>
+        <item>(3)</item>
+        <item>(4)</item>
+        <item>(5)</item>
+        <item>(6)</item>
+        <item>(7)</item>
+        <item>(8)</item>
+        <item>(9)</item>
+    </string-array>
 </resources>
