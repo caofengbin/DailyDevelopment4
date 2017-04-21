@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">DailyDevelopment4</string>
     <string-array name="main_view_string_array">
-        <item>(1)</item>
-        <item>(2)</item>
+        <item>(1)Android中的多线程使用</item>
+        <item>(2)Service的基本使用</item>
         <item>(3)</item>
         <item>(4)</item>
         <item>(5)</item>

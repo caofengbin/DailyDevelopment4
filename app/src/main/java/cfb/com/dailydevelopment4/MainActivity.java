@@ -8,6 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import cfb.com.dailydevelopment4.example1.multiplethread.MultipleThreadActivity;
+import cfb.com.dailydevelopment4.example2.service.ServiceActivity;
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
 	private String[] mainItems;
@@ -32,9 +35,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 		switch (position) {
 			case 0:
-
+				startIntent(MultipleThreadActivity.class);
 				break;
 			case 1:
+				startIntent(ServiceActivity.class);
 				break;
 			case 2:
 
