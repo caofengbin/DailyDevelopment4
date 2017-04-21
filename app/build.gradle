@@ -29,3 +29,74 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.0.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.0.1'
 }
+
+task dl << {
+
+    def rootPath = project.projectDir.absolutePath;
+
+    def files = new File(rootPath + "/src");
+
+    println files.getAbsolutePath()
+
+    deleteLog(files)
+}
+
+void deleteLog(File listFiles) {
+    if (listFiles != null) {
+        listFiles.eachFile {File file ->
+            if (file != null) {
+                if (file.isFile()) {
+                    if (file.canRead() && file.name.endsWith(LogConstant.suffix)) {
+                        println file.getAbsolutePath()
+
+                        deleteFileLog(file);
+                    }
+                } else if (file.isDirectory()) {
+                    deleteLog(file);
+                }
+            }
+        }
+    }
+}
+
+void deleteFileLog(File javafile) {
+    def endFlag = 0;
+    File ftmp = file(javafile.getAbsolutePath() + ".tmp");
+    def printWriter = ftmp.newPrintWriter(LogConstant.charset);
+    def reader = javafile.newReader(LogConstant.charset);
+    def tmpline = null;
+    String line;
+    while ((line = reader.readLine()) != null) {
+        if (line != null) {
+            tmpline = line.trim();
+            if (tmpline.startsWith(LogConstant.head) || endFlag == 1) {
+
+                if (tmpline.endsWith(LogConstant.tail_end)) {
+                    endFlag = 0;
+                    printWriter.write("//\n")
+                    continue
+                } else {
+                    endFlag = 1;
+                    continue
+                }
+            } else {
+                printWriter.write(line + "\n");
+            }
+        }
+    }
+
+    reader.close();
+
+    printWriter.flush();
+    printWriter.close();
+
+    javafile.delete();
+    ftmp.renameTo(javafile.getAbsolutePath());
+}
+
+task LogConstant {
+    ext.head = 'Log.'
+    ext.tail_end = ');'
+    ext.suffix = '.java'
+    ext.charset = "utf-8"
+}

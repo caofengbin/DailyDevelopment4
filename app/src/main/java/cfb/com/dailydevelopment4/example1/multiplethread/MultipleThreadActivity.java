@@ -43,9 +43,9 @@ public class MultipleThreadActivity extends AppCompatActivity implements View.On
 		changeText.setOnClickListener(this);
 		boolean isUIThread = Looper.myLooper() == Looper.getMainLooper();
 		if(isUIThread) {
-			Log.e(TAG,"代码1在UI线程执行");
+;
 		} else {
-			Log.e(TAG,"代码1在子线程执行");
+;
 		}
 	}
 
@@ -58,9 +58,9 @@ public class MultipleThreadActivity extends AppCompatActivity implements View.On
 					public void run() {
 						boolean isUIThread = Looper.myLooper() == Looper.getMainLooper();
 						if(isUIThread) {
-							Log.e(TAG,"代码2在UI线程执行");
+;
 						} else {
-							Log.e(TAG,"代码2在子线程执行");
+;
 						}
 						Message message = new Message();
 						message.what = UPDATE_TEXT;
