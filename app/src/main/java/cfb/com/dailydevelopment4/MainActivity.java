@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	private ListView mMainListView;
 	private ArrayAdapter<String> itemAdapter;
 
+//
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
