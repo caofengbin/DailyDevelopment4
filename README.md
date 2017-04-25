@@ -45,3 +45,12 @@ stopService(stopIntent);
 
 
 ---
+
+## 3.Service的高级使用
+
+本示例中给出了如下的几种使用方式：
+
+> * bindService()的方法
+> * unBindService()的方法
+> * 使用前台进程的方法
+> * **使用IntentService**的方法

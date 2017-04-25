@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cfb.com.dailydevelopment4">
+<manifest package="cfb.com.dailydevelopment4"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -12,27 +12,47 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".example1.multiplethread.MultipleThreadActivity"
             android:exported="false"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
 
         <service
             android:name=".example2.service.MyService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"/>
 
         <activity
             android:name=".example2.service.ServiceActivity"
             android:exported="false"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
+
+        <service
+            android:name=".example3.bindservice.MyService2"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <activity android:name=".example3.bindservice.BindServiceActivity">
+        </activity>
+
+        <service
+            android:name=".example3.bindservice.ForGroundService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <service
+            android:name=".example3.bindservice.MyIntentService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>

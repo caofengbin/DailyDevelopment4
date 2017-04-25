@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import cfb.com.dailydevelopment4.example1.multiplethread.MultipleThreadActivity;
 import cfb.com.dailydevelopment4.example2.service.ServiceActivity;
+import cfb.com.dailydevelopment4.example3.bindservice.BindServiceActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 				startIntent(ServiceActivity.class);
 				break;
 			case 2:
-
+                startIntent(BindServiceActivity.class);
 				break;
 			case 3:
 				break;
