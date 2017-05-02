@@ -16,6 +16,34 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+
+                    def fileName = "MyApp_v${defaultConfig.versionName}_${variant.productFlavors[0].name}_${variant.buildType.name}.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+                }
+            }
+        }
+    }
+
+    productFlavors {
+       product1 {
+
+       }
+
+        product2 {
+
+        }
+
+        product3 {
+        }
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [Channel_Value: name]
     }
 }
 
@@ -29,17 +57,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.0.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.0.1'
 }
-
-//task dl << {
-//
-//    def rootPath = project.projectDir.absolutePath;
-//
-//    def files = new File(rootPath + "/src");
-//
-//    println files.getAbsolutePath()
-//
-//    deleteLog(files)
-//}
 
 task hello(type:myscript.HelloWorldTask)
 
@@ -81,4 +98,14 @@ testTask0.enabled = false
 task testCopy(type:Copy) {
     from ''
     into ''
+}
+
+task getParamers {
+    println  project
+    println  project.name
+    println  project.buildDir
+    println  project.buildFile
+    println  project.version
+    println  name
+    println  path
 }
