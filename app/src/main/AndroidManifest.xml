@@ -2,13 +2,15 @@
 <manifest package="cfb.com.dailydevelopment4"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="Product"
             android:value="${Channel_Value}"/>
@@ -58,6 +60,22 @@
             android:enabled="true"
             android:exported="true">
         </service>
+
+        <activity
+            android:name=".example4.okhttp.UseOkHttpActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <service
+            android:name=".example5.download.DownloadService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <activity android:name=".example5.download.TestDownloadActivity">
+        </activity>
     </application>
 
 </manifest>

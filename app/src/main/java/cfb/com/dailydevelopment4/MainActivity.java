@@ -11,6 +11,8 @@ import android.widget.ListView;
 import cfb.com.dailydevelopment4.example1.multiplethread.MultipleThreadActivity;
 import cfb.com.dailydevelopment4.example2.service.ServiceActivity;
 import cfb.com.dailydevelopment4.example3.bindservice.BindServiceActivity;
+import cfb.com.dailydevelopment4.example4.okhttp.UseOkHttpActivity;
+import cfb.com.dailydevelopment4.example5.download.TestDownloadActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -46,8 +48,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startIntent(BindServiceActivity.class);
 				break;
 			case 3:
+                startIntent(UseOkHttpActivity.class);
 				break;
 			case 4:
+                startIntent(TestDownloadActivity.class);
 				break;
 			case 5:
 				break;
