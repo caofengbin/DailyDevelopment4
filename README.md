@@ -78,7 +78,7 @@ Request.Builder builder = new Request.Builder();
 final Request request = builder.get().url("https://api.douban.com/v2/book/search?q=%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BF%AE%E7%82%BC%E4%B9%8B%E9%81%93--%E4%BB%8E%E5%B0%8F%E5%B7%A5%E5%88%B0%E4%B8%93%E5%AE%B6&fields=id,title,url").build();
 
 // 3.将request封装为call,类似runnable,非常重要的一个步骤
-        Call call = okHttpClient.newCall(request);
+Call call = okHttpClient.newCall(request);
 
 // 4.请求
 //call.execute();
@@ -94,4 +94,57 @@ call.enqueue(new Callback() {
       		
       });
 }
+```
+
+---
+
+## 5.一个基于AsyncTask与OkHttp实现的断点续传(非常的赞)
+
+代码分析：
+
+一开始检测是否已经下载过，以及下载过的长度：
+
+``` java
+file = new File(directory + fileName);
+if(file.exists()) {
+     // 文件已经下载了，或下载了部分的文件
+     downloadLength += file.length();
+}
+long contentLength = getContentLength(downloadUrl);
+if (contentLength == 0) {
+      return TYPE_FAILED;
+} else if(contentLength ==downloadLength ) {
+      // 已下载的长度等于最终的长度，说明下载已经完成
+      return TYPE_SUCCESS;
+}
+
+```
+
+实现断点续传的关键在构造Request中：
+
+``` java
+Request request = new Request.Builder()
+     // 断点下载，指定从已开始的字节处开始下载
+     .addHeader("RANGE", "bytes=" + downloadLength + "-")
+     .url(downloadUrl)
+     .build();
+```
+
+定义的接口：
+
+``` java
+
+public interface DownloadListener {
+
+    void onProgress(int progress);
+
+    void onSuccess();
+
+    void onFailed();
+
+    void onPause();
+
+    void onCanceled();
+}
+
 ```

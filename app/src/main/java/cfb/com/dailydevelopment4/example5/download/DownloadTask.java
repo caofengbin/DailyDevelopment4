@@ -16,6 +16,7 @@ import okhttp3.Response;
 import static android.R.attr.id;
 
 /**
+ * 实现下载的AsyncTask
  * Created by fengbincao on 2017/5/4.
  */
 
