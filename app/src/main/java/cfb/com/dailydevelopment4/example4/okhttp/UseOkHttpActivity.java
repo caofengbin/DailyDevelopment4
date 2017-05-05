@@ -14,8 +14,11 @@ import butterknife.OnClick;
 import cfb.com.dailydevelopment4.R;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
@@ -25,8 +28,20 @@ public class UseOkHttpActivity extends AppCompatActivity {
 
     private static final String TAG = "okhttp";
 
+    // 第一步；
+    OkHttpClient okHttpClient = new OkHttpClient();
+
     @BindView(R.id.get_button)
     public Button mGetButton;
+
+    @BindView(R.id.post_button)
+    public Button mPostButton;
+
+    @BindView(R.id.post_string_button)
+    public Button mPostStringButton;
+
+    @BindView(R.id.download_file)
+    public Button mDownLoadButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +53,6 @@ public class UseOkHttpActivity extends AppCompatActivity {
     @OnClick(R.id.get_button)
     public void makeGetRequest() {
         // 第一步；
-        OkHttpClient okHttpClient = new OkHttpClient();
 
         // 2.构造request
         Request.Builder builder = new Request.Builder();
@@ -69,9 +83,76 @@ public class UseOkHttpActivity extends AppCompatActivity {
                 } else {
                     Log.e(TAG, "回调onResponse在子线程执行");
                 }
-                // 对流进行IO操作，可以支持大文件的下载操作，这是其设计的核心目的，
-                //response.body().byteStream();
             }
         });
+    }
+
+    @OnClick(R.id.post_button)
+    public void makePostRequest() {
+
+        // 2.构造request
+        Request.Builder builder = new Request.Builder();
+
+        FormBody body = new FormBody.Builder()
+                .add("your_param_1", "your_value_1")
+                .add("your_param_2", "your_value_2")
+                .build();
+
+        final Request request = builder.url("").post(body).build();
+
+        // 3.将request封装为call,类似runnable,非常重要的一个步骤
+        Call call = okHttpClient.newCall(request);
+
+        // 4.请求
+        //call.execute();
+
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e(TAG, "onFailure" + e.getMessage());
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.e(TAG, "onResponse");
+            }
+        });
+    }
+
+    @OnClick(R.id.post_string_button)
+    public void makePostStringRequest() {
+
+        // 2.构造request
+        Request.Builder builder = new Request.Builder();
+
+        // 传递一个post类型，第一个为Mine-Type,d
+        RequestBody requestBody = RequestBody.create(MediaType.parse("text/plain;chaset=utf-8"),"json string");
+
+        final Request request = builder.url("").post(requestBody).build();
+
+        // 3.将request封装为call,类似runnable,非常重要的一个步骤
+        Call call = okHttpClient.newCall(request);
+
+        // 4.请求
+        //call.execute();
+
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e(TAG, "onFailure" + e.getMessage());
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.e(TAG, "onResponse");
+            }
+        });
+    }
+
+    @OnClick(R.id.download_file)
+    public void makeDownLoadRequest() {
+
     }
 }

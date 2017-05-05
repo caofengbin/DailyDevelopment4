@@ -54,3 +54,44 @@ stopService(stopIntent);
 > * unBindService()的方法
 > * 使用前台进程的方法
 > * **使用IntentService**的方法
+
+---
+
+## 4.OkHttp的基本使用
+
+本示例中给出了如下的常见方式：
+
+> * 使用OkHttp发送get()请求；
+> * 使用OkHttp发送post键值对的请求；
+> * 使用OkHttp发送post json数据的请求；
+> * 使用OkHttp下载与长传文件；
+
+通用的使用流程如下：
+
+``` java
+// 第一步；
+OkHttpClient okHttpClient = new OkHttpClient();
+
+// 2.构造request
+Request.Builder builder = new Request.Builder();
+
+final Request request = builder.get().url("https://api.douban.com/v2/book/search?q=%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BF%AE%E7%82%BC%E4%B9%8B%E9%81%93--%E4%BB%8E%E5%B0%8F%E5%B7%A5%E5%88%B0%E4%B8%93%E5%AE%B6&fields=id,title,url").build();
+
+// 3.将request封装为call,类似runnable,非常重要的一个步骤
+        Call call = okHttpClient.newCall(request);
+
+// 4.请求
+//call.execute();
+
+call.enqueue(new Callback() {
+      @Override
+      public void onFailure(Call call, IOException e) {
+          
+      }
+
+      @Override
+      public void onResponse(Call call, Response response) throws IOException {
+      		
+      });
+}
+```
