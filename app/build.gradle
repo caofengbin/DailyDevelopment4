@@ -33,13 +33,13 @@ android {
        product1 {
 
        }
-
-        product2 {
-
-        }
-
-        product3 {
-        }
+//
+//        product2 {
+//
+//        }
+//
+//        product3 {
+//        }
     }
 
     productFlavors.all {
