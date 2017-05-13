@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'pluginsrc'
 
 android {
     compileSdkVersion 25
@@ -30,9 +31,9 @@ android {
     }
 
     productFlavors {
-       product1 {
+        product1 {
 
-       }
+        }
 //
 //        product2 {
 //
@@ -61,25 +62,25 @@ dependencies {
     compile project(':testlibrary')
 }
 
-task hello(type:myscript.HelloWorldTask)
+task hello(type: myscript.HelloWorldTask)
 
-task hello1(type:myscript.HelloWorldTask){
-    message ="I am a programmer"
+task hello1(type: myscript.HelloWorldTask) {
+    message = "I am a programmer"
 }
 
-task deleteLogTask(type:myscript.DeleteLogTask)
+task deleteLogTask(type: myscript.DeleteLogTask)
 
 task helloWorld {
 
-        println('Hello World')
+    println('Hello World')
 
-        doFirst {
-            println('do First')
-        }
+    doFirst {
+        println('do First')
+    }
 
-        doLast {
-            println('do Last')
-        }
+    doLast {
+        println('do Last')
+    }
 }
 
 task testDoLast << {
@@ -98,17 +99,21 @@ testTask0.finalizedBy testTask1
 
 testTask0.enabled = false
 
-task testCopy(type:Copy) {
+task testCopy(type: Copy) {
     from ''
     into ''
 }
 
 task getParamers {
-    println  project
-    println  project.name
-    println  project.buildDir
-    println  project.buildFile
-    println  project.version
-    println  name
-    println  path
+    println project
+    println project.name
+    println project.buildDir
+    println project.buildFile
+    println project.version
+    println name
+    println path
+}
+
+pluginsrc {
+    message = 'hello gradle plugin'
 }
