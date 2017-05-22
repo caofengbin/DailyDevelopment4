@@ -78,6 +78,8 @@
         </activity>
         <activity android:name=".example6.drawtext.DrawTextActivity">
         </activity>
+        <activity android:name=".example7.animation.AnimationActivity">
+        </activity>
     </application>
 
 </manifest>

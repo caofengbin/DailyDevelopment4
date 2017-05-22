@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/activity_animation"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cfb.com.dailydevelopment4.example7.animation.AnimationActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/alpha_animation_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Alpha透明度动画"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/rotation_animation_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Rotate旋转动画"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/rotation_animation_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="设置参考系的旋转动画"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/translate_animation_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Translate位移动画"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/scale_animation_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Scale缩放动画"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/scale_animation_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="指定参考系的Scale缩放动画"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/animation_set_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Anim Set动画集合"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+
+</ScrollView>

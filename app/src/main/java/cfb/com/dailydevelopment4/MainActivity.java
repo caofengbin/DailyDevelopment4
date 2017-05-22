@@ -1,8 +1,8 @@
 package cfb.com.dailydevelopment4;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +14,7 @@ import cfb.com.dailydevelopment4.example3.bindservice.BindServiceActivity;
 import cfb.com.dailydevelopment4.example4.okhttp.UseOkHttpActivity;
 import cfb.com.dailydevelopment4.example5.download.TestDownloadActivity;
 import cfb.com.dailydevelopment4.example6.drawtext.DrawTextActivity;
+import cfb.com.dailydevelopment4.example7.animation.AnimationActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startIntent(DrawTextActivity.class);
 				break;
 			case 6:
+                startIntent(AnimationActivity.class);
 				break;
 			case 7:
 				break;
