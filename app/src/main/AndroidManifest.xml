@@ -76,6 +76,8 @@
 
         <activity android:name=".example5.download.TestDownloadActivity">
         </activity>
+        <activity android:name=".example6.drawtext.DrawTextActivity">
+        </activity>
     </application>
 
 </manifest>

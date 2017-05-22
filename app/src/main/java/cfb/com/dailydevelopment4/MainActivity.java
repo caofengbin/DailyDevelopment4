@@ -13,6 +13,7 @@ import cfb.com.dailydevelopment4.example2.service.ServiceActivity;
 import cfb.com.dailydevelopment4.example3.bindservice.BindServiceActivity;
 import cfb.com.dailydevelopment4.example4.okhttp.UseOkHttpActivity;
 import cfb.com.dailydevelopment4.example5.download.TestDownloadActivity;
+import cfb.com.dailydevelopment4.example6.drawtext.DrawTextActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startIntent(TestDownloadActivity.class);
 				break;
 			case 5:
+                startIntent(DrawTextActivity.class);
 				break;
 			case 6:
 				break;
