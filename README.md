@@ -148,3 +148,17 @@ public interface DownloadListener {
 }
 
 ```
+
+---
+
+## 7.视图动画Animation框架
+
+分别演示如下几种使用的方式
+
+> * 旋转动画：RotateAnimation
+> * 位移动画：TranslateAnimation
+> * 透明度动画：AlphaAnimation
+> * 缩放动画：ScaleAnimation
+> * Animation框架的动画事件监听器：Animation.AnimationListener
+> * 使用xml文件加载动画的方法；
+> * 动画集合：AnimationSet

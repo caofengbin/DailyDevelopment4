@@ -14,19 +14,19 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/alpha_animation_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Alpha透明度动画"
-            android:textAllCaps="false"/>
-
-        <Button
             android:id="@+id/rotation_animation_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Rotate旋转动画"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/alpha_animation_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Alpha透明度动画"
             android:textAllCaps="false"/>
 
         <Button
@@ -70,36 +70,23 @@
             android:textAllCaps="false"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/animation_listener_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:onClick="btnSet"
-            android:text="Anim Set"
+            android:text="动画的Listener"
             android:textAllCaps="false"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/animation_xml_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:onClick="btnSet"
-            android:text="Anim Set"
+            android:text="通过XML加载动画"
             android:textAllCaps="false"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:onClick="btnSet"
-            android:text="Anim Set"
-            android:textAllCaps="false"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:onClick="btnSet"
-            android:text="Anim Set"
-            android:textAllCaps="false"/>
+
 
     </LinearLayout>
 

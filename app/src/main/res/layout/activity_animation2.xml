@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/activity_animation2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cfb.com.dailydevelopment4.example7.animation.AnimationActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/attribute_animation_translation_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="属性动画在X轴上平移"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/attribute_animation_alpha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="属性动画实现alpha变化"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/attribute_animation_self_define"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="没有get和set方法的属性动画实现"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/property_values_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="使用PropertyHolder实现多个动画组合"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/use_value_animator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="使用ValueAnimator"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/property_animation_listener_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="属性动画的监听"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/animation_set_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Anim Set动画集合"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/animation_listener_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="动画的Listener"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/animation_xml_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="通过XML加载动画"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="btnSet"
+            android:text="Anim Set"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+
+</ScrollView>

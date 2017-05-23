@@ -15,6 +15,7 @@ import cfb.com.dailydevelopment4.example4.okhttp.UseOkHttpActivity;
 import cfb.com.dailydevelopment4.example5.download.TestDownloadActivity;
 import cfb.com.dailydevelopment4.example6.drawtext.DrawTextActivity;
 import cfb.com.dailydevelopment4.example7.animation.AnimationActivity;
+import cfb.com.dailydevelopment4.example8.animation2.AnimationActivity2;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startIntent(AnimationActivity.class);
 				break;
 			case 7:
+                startIntent(AnimationActivity2.class);
 				break;
 			case 8:
 				break;
