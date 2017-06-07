@@ -41,6 +41,7 @@ public class AnimationActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_animation2);
 
         ButterKnife.bind(this);
+
     }
 
     @OnClick(R.id.attribute_animation_translation_x)
@@ -106,6 +107,7 @@ public class AnimationActivity2 extends AppCompatActivity {
         });
 
         valueAnimator.start();
+
     }
 
     @OnClick(R.id.property_animation_listener_btn)
