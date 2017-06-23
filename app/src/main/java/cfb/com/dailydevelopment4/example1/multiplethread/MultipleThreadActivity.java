@@ -43,10 +43,8 @@ public class MultipleThreadActivity extends AppCompatActivity implements View.On
 		changeText.setOnClickListener(this);
 		boolean isUIThread = Looper.myLooper() == Looper.getMainLooper();
 		if(isUIThread) {
-;
-		} else {
-;
-		}
+        } else {
+        }
 	}
 
 	@Override
@@ -58,10 +56,8 @@ public class MultipleThreadActivity extends AppCompatActivity implements View.On
 					public void run() {
 						boolean isUIThread = Looper.myLooper() == Looper.getMainLooper();
 						if(isUIThread) {
-;
-						} else {
-;
-						}
+                        } else {
+                        }
 						Message message = new Message();
 						message.what = UPDATE_TEXT;
 						mHandler.sendMessage(message);

@@ -60,11 +60,8 @@ public abstract class AbstractHttpResponse implements HttpResponse {
     private boolean isGzip() {
         String contentEncoding = getHeaders().getContentEncoding();
 
-        if (GZIP.equals(contentEncoding)) {
-            return true;
-        }
+        return GZIP.equals(contentEncoding);
 
-        return false;
     }
 
 }

@@ -48,10 +48,7 @@ public abstract class AbstractHttpRequest implements HttpRequest {
     public boolean isGzip() {
         String contentEncoding = getHeaders().getContentEncoding();
 
-        if (GZIP.equals(contentEncoding)) {
-            return true;
-        }
-        return false;
+        return GZIP.equals(contentEncoding);
     }
 
     @Override

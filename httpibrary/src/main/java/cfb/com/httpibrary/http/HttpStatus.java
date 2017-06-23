@@ -64,7 +64,7 @@ public enum HttpStatus {
 
     private String mMessage;
 
-    private HttpStatus(int code, String message) {
+    HttpStatus(int code, String message) {
         this.mCode = code;
         this.mMessage = message;
     }
@@ -75,11 +75,7 @@ public enum HttpStatus {
      */
     public boolean isSuccess() {
         int value = mCode / 100;
-        if(value == 2) {
-            return true;
-        } else {
-            return false;
-        }
+        return value == 2;
     }
 
     public static HttpStatus getValue(int value) {
