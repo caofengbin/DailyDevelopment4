@@ -16,6 +16,7 @@ import cfb.com.dailydevelopment4.example5.download.TestDownloadActivity;
 import cfb.com.dailydevelopment4.example6.drawtext.DrawTextActivity;
 import cfb.com.dailydevelopment4.example7.animation.AnimationActivity;
 import cfb.com.dailydevelopment4.example8.animation2.AnimationActivity2;
+import cfb.com.dailydevelopment4.example9.radar.RadarGraphActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	private ListView mMainListView;
 	private ArrayAdapter<String> itemAdapter;
 
-//
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startIntent(AnimationActivity2.class);
 				break;
 			case 8:
+                startIntent(RadarGraphActivity.class);
 				break;
 		}
 	}

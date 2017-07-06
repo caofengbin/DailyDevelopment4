@@ -74,13 +74,30 @@
             android:exported="true">
         </service>
 
-        <activity android:name=".example5.download.TestDownloadActivity">
+        <activity
+            android:name=".example5.download.TestDownloadActivity"
+            android:enabled="true"
+            android:exported="true">
         </activity>
-        <activity android:name=".example6.drawtext.DrawTextActivity">
+        <activity
+            android:name=".example6.drawtext.DrawTextActivity"
+            android:enabled="true"
+            android:exported="true">
         </activity>
-        <activity android:name=".example7.animation.AnimationActivity">
+        <activity
+            android:name=".example7.animation.AnimationActivity"
+            android:enabled="true"
+            android:exported="true">
         </activity>
-        <activity android:name=".example8.animation2.AnimationActivity2">
+        <activity
+            android:name=".example8.animation2.AnimationActivity2"
+            android:enabled="true"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".example9.radar.RadarGraphActivity"
+            android:enabled="true"
+            android:exported="true">
         </activity>
     </application>
 
