@@ -1,1 +1,1 @@
-include ':app', ':testlibrary', ':httpibrary'
+include ':app', ':testlibrary', ':httpibrary', ':smallchart', ':chartlibrary'
