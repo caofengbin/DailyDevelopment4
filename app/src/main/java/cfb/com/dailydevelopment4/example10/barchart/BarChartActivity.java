@@ -26,13 +26,14 @@ public class BarChartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bar_chasrt);
         BarTPDotFigureChart barChart = (BarTPDotFigureChart)findViewById(R.id.barChart);
         initData();
+
         barChart.setDataList(mDataList);
         barChart.setXAxisUnit("X单位");
         barChart.setYAxisUnit("Y单位");
     }
 
     private void initData() {
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 6; i++) {
             mPointArrayList.add(new PointF(points[i][0], points[i][1]));
         }
         mBarData.setValue(mPointArrayList);

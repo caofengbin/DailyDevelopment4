@@ -39,17 +39,18 @@ public class ComputeXAxis<T extends IDotFigureData> extends Compute {
     /**
      * 计算坐标系
      *
-     * @param mBarLineCurveData 坐标集合
+     * @param dotFigureDataArray 坐标集合
      */
-    public void computeXAxis(ArrayList<T> mBarLineCurveData) {
-        for (int i = 0; i < mBarLineCurveData.size(); i++) {
-            IDotFigureData barLineCurveData = mBarLineCurveData.get(i);
-            int length = barLineCurveData.getValue().size();
+    public void computeXAxis(ArrayList<T> dotFigureDataArray) {
+        for (int i = 0; i < dotFigureDataArray.size(); i++) {
+            IDotFigureData dotFigureData = dotFigureDataArray.get(i);
+            // 通过 dotFigureData.getValue() 操作取到的才是点集部分的数据
+            int length = dotFigureData.getValue().size();
             float maxX = 0;
             float minX = 0;
             if (length > 0) {
-                maxX = Math.max(barLineCurveData.getValue().get(length - 1).x, barLineCurveData.getValue().get(0).x);
-                minX = Math.min(barLineCurveData.getValue().get(length - 1).x, barLineCurveData.getValue().get(0).x);
+                maxX = Math.max(dotFigureData.getValue().get(length - 1).x, dotFigureData.getValue().get(0).x);
+                minX = Math.min(dotFigureData.getValue().get(length - 1).x, dotFigureData.getValue().get(0).x);
             }
 
 
@@ -83,9 +84,11 @@ public class ComputeXAxis<T extends IDotFigureData> extends Compute {
 
             initMaxMin(maxX, minX, i, xAxisData);
         }
-        //默认所有的BarLineCurveData。getValue()长度相同
-        if (mBarLineCurveData.size() > 0)
-            initScaling(xAxisData.getMinimum(), xAxisData.getMaximum(), mBarLineCurveData.get(0).getValue().size(), xAxisData);
+        if (dotFigureDataArray.size() > 0) {
+            initScaling(xAxisData.getMinimum(), xAxisData.getMaximum(),
+                    dotFigureDataArray.get(0).getValue().size(), xAxisData);
+
+        }
     }
 
     /**

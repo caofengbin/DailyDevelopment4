@@ -3,7 +3,7 @@ package cfb.com.chartlibrary.compute;
 import cfb.com.chartlibrary.interfaces.iData.IAxisData;
 
 /**
- * 坐标轴计算帮助类
+ * 可视化图表控件 -> 坐标轴计算工具类
  * Created by fengbincao on 2017/7/9.
  */
 
@@ -82,6 +82,7 @@ public class Compute {
         if (length < 16 && length != 0) {
             scaling = (max - min) / (length - 1);
         } else {
+            // 默认X轴最多显示16个数据，超过则进行 scale 操作
             scaling = (max - min) / 15;
         }
         if (scaling < 0) {
@@ -103,6 +104,7 @@ public class Compute {
             scaling = (float) (Math.ceil(scaling) * Math.pow(10, -count));
             axisData.setDecimalPlaces(count);
         }
+        // 设定X轴的步长值
         axisData.setInterval(scaling * scaleAxisSign);
         scaleAxisSign = 1;
     }
