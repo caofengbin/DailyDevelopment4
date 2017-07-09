@@ -1,22 +1,26 @@
 package cfb.com.chartlibrary.interfaces.iData;
 
 /**
- * 描述:所有数据类接口
- * 包括：图标文字大小，图表颜色，画笔宽度，是否显示Y值四个相关的设置
+ * 可视化图表控件 -> 数据接口类的基类
+ * 定义的相关set方法
+ * (1) 是否显示Y轴的当前值
+ * (2) 图表的颜色值
+ * (3) 图表上的文字大小
+ * (4) 画笔的宽度
  * Created by fengbincao on 2017/7/8.
  */
 
 public interface IBaseData {
 
     /**
-     * 设置是否显示Y值
+     * 设置是否显示Y轴的值(例如柱状图的最高点显示当前的值)
      */
-    void setIsTextSize(boolean isTextSize);
+    void setShowYAxisValue(boolean isTextSize);
 
     /**
      * 获取是否显示Y值
      */
-    boolean getIsTextSize();
+    boolean getShowYAxisValue();
 
     /**
      * 设置图表颜色
@@ -25,31 +29,26 @@ public interface IBaseData {
 
     /**
      * 获取图表颜色
-     * @return 颜色
      */
     int getColor();
 
     /**
      * 设置图表文字大小
-     * @param textSize 文字大小
      */
     void setTextSize(float textSize);
 
     /**
      * 获取图表文字大小
-     * @return 文字大小
      */
     float getTextSize();
 
     /**
      * 设置画笔宽度
-     * @param paintWidth 画笔宽度
      */
     void setPaintWidth(float paintWidth);
 
     /**
      * 获取画笔宽度
-     * @return 画笔宽度
      */
     float getPaintWidth();
 }

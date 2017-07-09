@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public abstract class PieRadarChart<T extends IChartData> extends Chart<T> implements IPieRadarChart {
 
-//    protected ArrayList<ChartRender> chartRenderList = new ArrayList<>();
+//    protected ArrayList<TPChartRender> chartRenderList = new ArrayList<>();
 
     public PieRadarChart(Context context) {
         super(context);

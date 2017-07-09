@@ -1,7 +1,7 @@
 package cfb.com.chartlibrary.interfaces.iChart;
 
 /**
- * 描述 : 所有绘制的基础接口
+ * 可视化图表控件 -> 所有表格类型的基类定义
  * Created by fengbincao on 2017/7/8.
  */
 

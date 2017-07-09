@@ -10,41 +10,44 @@ import java.util.ArrayList;
 
 import cfb.com.chartlibrary.interfaces.iChart.IChart;
 import cfb.com.chartlibrary.interfaces.iData.IChartData;
-import cfb.com.chartlibrary.render.ChartRender;
+import cfb.com.chartlibrary.render.TPChartRender;
 
 /**
- * 所有图表绘制基类
+ * 可视化图表控件 -> 图表库中的抽象控件类基类
  * Created by fengbincao on 2017/7/8.
  */
 
-public abstract class Chart<T extends IChartData> extends View implements IChart {
+public abstract class TPChart<T extends IChartData> extends View implements IChart {
 
-    // 原始的宽高
-    protected int mViewWidth, mViewHeight;
+    // 控件的原始宽高
+    protected int mViewWidth;
+    protected int mViewHeight;
 
     // 去除padding部分的宽高
-    protected int mWidth, mHeight;
+    protected int mWidth;
+    protected int mHeight;
 
-    protected ArrayList<T> mDataList = new ArrayList<>();
-
+    // 动画监听器
     protected ValueAnimator.AnimatorUpdateListener mAnimatorUpdateListener;
 
-    protected ArrayList<ChartRender> chartRenderList = new ArrayList<>();
+    // 表格中的数据实体部分
+    protected ArrayList<T> mDataList = new ArrayList<>();
 
-    /**
-     * 测量用画笔
-     */
+    // 表格的渲染器数组
+    protected ArrayList<TPChartRender> chartRenderList = new ArrayList<>();
+
+    // 测量用画笔
     protected Paint paintText = new Paint();
 
-    public Chart(Context context) {
+    public TPChart(Context context) {
         super(context);
     }
 
-    public Chart(Context context, AttributeSet attrs) {
+    public TPChart(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public Chart(Context context, AttributeSet attrs, int defStyleAttr) {
+    public TPChart(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -72,18 +75,24 @@ public abstract class Chart<T extends IChartData> extends View implements IChart
     }
 
     /**
-     * 设置图表数据
+     * 设置图表数据方法1
      * @param chartData 图表数据
      */
     public abstract void setData(T chartData);
 
     /**
-     * 设置图标数据
+     * 设置图标数据方法2：传递一个数据数组的形式
      * @param chartDataList 图表数据
      */
     public abstract void setDataList(ArrayList<T> chartDataList);
 
+    /**
+     * 子类实现，测量当前控件的宽度
+     */
     public abstract int getCurrentWidth();
 
+    /**
+     * 子类实现，测量当前控件的高度
+     */
     public abstract int getCurrentHeight();
 }
