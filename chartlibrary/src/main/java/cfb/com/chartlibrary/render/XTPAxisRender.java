@@ -13,14 +13,14 @@ import cfb.com.chartlibrary.interfaces.iData.IXAxisData;
  * Created by fengbincao on 2017/7/9.
  */
 
-public class XAxisTPRender extends AxisTPRender {
+public class XTPAxisRender extends TPAxisRender {
 
     private Paint mPaint = new Paint();
     private IXAxisData xAxisData;
     private NumberFormat numberFormat;
     private PointF mPoint = new PointF();
 
-    public XAxisTPRender(IXAxisData xAxisData) {
+    public XTPAxisRender(IXAxisData xAxisData) {
         super();
         this.xAxisData = xAxisData;
         // 初始化绘图相关数据

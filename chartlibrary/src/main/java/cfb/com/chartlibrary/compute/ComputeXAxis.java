@@ -9,42 +9,41 @@ import cfb.com.chartlibrary.interfaces.iData.IDotFigureData;
 import cfb.com.chartlibrary.interfaces.iData.IXAxisData;
 
 /**
- * Created by Idtk on 2016/6/6.
- * Blog : http://www.idtkm.com
- * GitHub : https://github.com/Idtk
- * 描述 ; X轴计算类
+ * 可视化图表控件 -> X 轴计算工具类
+ * Created by fengbincao on 2017/7/10.
  */
 public class ComputeXAxis<T extends IDotFigureData> extends Compute {
 
-    private IXAxisData xAxisData;
+    private IXAxisData mAxisData;
     private NumberFormat numberFormat;
     private Paint paint = new Paint();
 
-    /**
-     * 限制收敛次数
-     */
-    private int times = 0;
+    // 限制收敛次数
+    private int scaleTimes = 0;
 
     public ComputeXAxis(IXAxisData axisData) {
         super(axisData);
-        xAxisData = axisData;
-        paint.setColor(xAxisData.getColor());
-        paint.setTextSize(xAxisData.getTextSize());
-        paint.setStrokeWidth(xAxisData.getPaintWidth());
+        mAxisData = axisData;
+
+        // 初始化坐标轴相关的设置信息
+        paint.setColor(mAxisData.getColor());
+        paint.setTextSize(mAxisData.getTextSize());
+        paint.setStrokeWidth(mAxisData.getPaintWidth());
+
         //设置小数点位数
         numberFormat = NumberFormat.getNumberInstance();
-        numberFormat.setMaximumFractionDigits(xAxisData.getDecimalPlaces());
+        numberFormat.setMaximumFractionDigits(mAxisData.getDecimalPlaces());
     }
 
     /**
-     * 计算坐标系
+     * 计算坐标系 X 的相关参数
      *
      * @param dotFigureDataArray 坐标集合
      */
     public void computeXAxis(ArrayList<T> dotFigureDataArray) {
         for (int i = 0; i < dotFigureDataArray.size(); i++) {
             IDotFigureData dotFigureData = dotFigureDataArray.get(i);
-            // 通过 dotFigureData.getValue() 操作取到的才是点集部分的数据
+            // 通过 dotFigureData.getValue() 操作取到的是 点集部分的数据
             int length = dotFigureData.getValue().size();
             float maxX = 0;
             float minX = 0;
@@ -75,19 +74,19 @@ public class ComputeXAxis<T extends IDotFigureData> extends Compute {
             }
 
             if (i == 0) {
-                xAxisData.setNarrowMin(minX);
-                xAxisData.setNarrowMax(maxX);
+                mAxisData.setNarrowMin(minX);
+                mAxisData.setNarrowMax(maxX);
             } else {
-                xAxisData.setNarrowMin(minX < xAxisData.getNarrowMin() ? minX : xAxisData.getNarrowMin());
-                xAxisData.setNarrowMax(maxX > xAxisData.getNarrowMax() ? maxX : xAxisData.getNarrowMax());
+                mAxisData.setNarrowMin(minX < mAxisData.getNarrowMin() ? minX : mAxisData.getNarrowMin());
+                mAxisData.setNarrowMax(maxX > mAxisData.getNarrowMax() ? maxX : mAxisData.getNarrowMax());
             }
 
-            initMaxMin(maxX, minX, i, xAxisData);
+            initMaxMin(maxX, minX, i, mAxisData);
         }
         if (dotFigureDataArray.size() > 0) {
-            initScaling(xAxisData.getMinimum(), xAxisData.getMaximum(),
-                    dotFigureDataArray.get(0).getValue().size(), xAxisData);
-
+            // 设置坐标轴区间大小
+            initScaling(mAxisData.getMinimum(), mAxisData.getMaximum(),
+                    dotFigureDataArray.get(0).getValue().size(), mAxisData);
         }
     }
 
@@ -97,30 +96,30 @@ public class ComputeXAxis<T extends IDotFigureData> extends Compute {
      * @param barLineCurveData X轴数据
      */
     public void convergence(ArrayList<T> barLineCurveData) {
-        times++;
+        scaleTimes++;
         int count = 0;
         int newCount = 0;
         //二次处理字符过长
-        while ((xAxisData.getInterval() * count + xAxisData.getMinimum()) <= xAxisData.getMaximum()) {
+        while ((mAxisData.getInterval() * count + mAxisData.getMinimum()) <= mAxisData.getMaximum()) {
             count++;
         }
-        float stringLength = paint.measureText(numberFormat.format(xAxisData.getInterval() + xAxisData.getMinimum()));
-        while (count * stringLength > xAxisData.getAxisLength()) {
+        float stringLength = paint.measureText(numberFormat.format(mAxisData.getInterval() + mAxisData.getMinimum()));
+        while (count * stringLength > mAxisData.getAxisLength()) {
             count = count / 2;
             newCount++;
         }
-        xAxisData.setInterval(newCount != 0 ? xAxisData.getInterval() * newCount * 2 : xAxisData.getInterval());
+        mAxisData.setInterval(newCount != 0 ? mAxisData.getInterval() * newCount * 2 : mAxisData.getInterval());
         //收敛
-        while (xAxisData.getNarrowMin() - xAxisData.getMinimum() > xAxisData.getInterval()) {
-            xAxisData.setMinimum(xAxisData.getMinimum() + xAxisData.getInterval());
+        while (mAxisData.getNarrowMin() - mAxisData.getMinimum() > mAxisData.getInterval()) {
+            mAxisData.setMinimum(mAxisData.getMinimum() + mAxisData.getInterval());
         }
 
-        while (xAxisData.getMaximum() - xAxisData.getNarrowMax() > xAxisData.getInterval()) {
-            xAxisData.setMaximum(xAxisData.getMaximum() - xAxisData.getInterval());
+        while (mAxisData.getMaximum() - mAxisData.getNarrowMax() > mAxisData.getInterval()) {
+            mAxisData.setMaximum(mAxisData.getMaximum() - mAxisData.getInterval());
         }
 
-        if (xAxisData.getMaximum() - xAxisData.getMinimum() <= (xAxisData.getInterval() * 2) && times < 5) {
-            initScaling(xAxisData.getMinimum(), xAxisData.getMaximum(), barLineCurveData.get(0).getValue().size(), xAxisData);
+        if (mAxisData.getMaximum() - mAxisData.getMinimum() <= (mAxisData.getInterval() * 2) && scaleTimes < 5) {
+            initScaling(mAxisData.getMinimum(), mAxisData.getMaximum(), barLineCurveData.get(0).getValue().size(), mAxisData);
             convergence(barLineCurveData);
         }
     }

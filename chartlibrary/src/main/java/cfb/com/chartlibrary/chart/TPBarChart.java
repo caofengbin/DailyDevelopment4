@@ -5,32 +5,30 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 
 import cfb.com.chartlibrary.interfaces.iChart.IBarChart;
-import cfb.com.chartlibrary.interfaces.iData.IBarDataI;
-import cfb.com.chartlibrary.render.BarTPChartRender;
-import cfb.com.chartlibrary.render.XAxisOffsetTPRender;
-import cfb.com.chartlibrary.render.YAxisTPRender;
+import cfb.com.chartlibrary.interfaces.iData.IBarData;
+import cfb.com.chartlibrary.render.TPBarChartRender;
+import cfb.com.chartlibrary.render.TPOffsetXAxisRender;
+import cfb.com.chartlibrary.render.TPYAxisRender;
 
 /**
- * 描述 : 柱状图绘制类
+ * 可视化图表控件 -> 柱状图类型
  * Created by fengbincao on 2017/7/9.
  */
 
-public class BarTPDotFigureChart extends TPDotFigureChart<IBarDataI> implements IBarChart {
+public class TPBarChart extends TPDotFigureChart<IBarData> implements IBarChart {
 
-    private BarTPChartRender mBarChartRender;
+    // 单个柱状图的宽度，默认为40
+    private float barWidth = 50;
 
-    // 单个柱状图的高度
-    private float barWidth = 30;
-
-    public BarTPDotFigureChart(Context context) {
+    public TPBarChart(Context context) {
         super(context);
     }
 
-    public BarTPDotFigureChart(Context context, AttributeSet attrs) {
+    public TPBarChart(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public BarTPDotFigureChart(Context context, AttributeSet attrs, int defStyleAttr) {
+    public TPBarChart(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -42,7 +40,7 @@ public class BarTPDotFigureChart extends TPDotFigureChart<IBarDataI> implements 
         //初始化基类中的chartRenderList
         for (int i = 0; i < mDataList.size(); i++) {
             offset = mXAxisData.getInterval() * mXAxisData.getAxisScale() / 2 - barWidth * mDataList.size() / 2 + barWidth * i;
-            mBarChartRender = new BarTPChartRender(mDataList.get(i), mXAxisData, mYAxisData, offset, barWidth);
+            TPBarChartRender mBarChartRender = new TPBarChartRender(mDataList.get(i), mXAxisData, mYAxisData, offset, barWidth);
             chartRenderList.add(mBarChartRender);
         }
     }
@@ -51,15 +49,15 @@ public class BarTPDotFigureChart extends TPDotFigureChart<IBarDataI> implements 
     protected void axisScale() {
         mXAxisData.setAxisScale(mXAxisData.getAxisLength() / (mXAxisData.getMaximum() - mXAxisData.getMinimum() + mXAxisData.getInterval()));
         mYAxisData.setAxisScale(mYAxisData.getAxisLength() / (mYAxisData.getMaximum() - mYAxisData.getMinimum()));
-        mXAxisOffsetRender = new XAxisOffsetTPRender(mXAxisData);
-        mYAxisRender = new YAxisTPRender(mYAxisData, mXAxisData);
+        mXAxisOffsetRender = new TPOffsetXAxisRender(mXAxisData);
+        mYAxisRender = new TPYAxisRender(mYAxisData, mXAxisData);
     }
 
     @Override
     protected void axisRender(Canvas canvas) {
         // 绘制坐标轴内容
         mXAxisOffsetRender.drawGraph(canvas);
-        mYAxisRender.drawGraph(canvas);
+        //mYAxisRender.drawGraph(canvas);
     }
 
     @Override

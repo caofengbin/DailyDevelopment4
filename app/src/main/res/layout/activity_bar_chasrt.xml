@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="cfb.com.dailydevelopment4.example9.radar.RadarGraphActivity">
 
-    <cfb.com.chartlibrary.chart.BarTPDotFigureChart
+    <cfb.com.chartlibrary.chart.TPBarChart
         android:id="@+id/barChart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

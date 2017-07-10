@@ -5,23 +5,23 @@ import android.animation.ValueAnimator;
 import android.view.animation.DecelerateInterpolator;
 
 /**
- * 描述 : 生成动画帮助类
- * Created by fengbincao on 2017/7/9.
+ * 可视化图表控件 ->  生成动画帮助类
+ * Created by fengbincao on 2017/7/10.
  */
 
-public class ChartAnimator {
+public class TPChartAnimator {
 
     private ValueAnimator animator = new ValueAnimator();
     private ValueAnimator.AnimatorUpdateListener listener;
     private TimeInterpolator timeInterpolator;
 
-    public ChartAnimator(ValueAnimator.AnimatorUpdateListener listener, TimeInterpolator timeInterpolator) {
+    public TPChartAnimator(ValueAnimator.AnimatorUpdateListener listener, TimeInterpolator timeInterpolator) {
         super();
         this.listener = listener;
         this.timeInterpolator = timeInterpolator;
     }
 
-    public ChartAnimator(ValueAnimator.AnimatorUpdateListener listener) {
+    public TPChartAnimator(ValueAnimator.AnimatorUpdateListener listener) {
         this(listener, new DecelerateInterpolator());
     }
 

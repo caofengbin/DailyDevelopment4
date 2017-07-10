@@ -9,27 +9,28 @@ import android.util.TypedValue;
 
 import java.util.ArrayList;
 
-import cfb.com.chartlibrary.chart.BarTPDotFigureChart;
-import cfb.com.chartlibrary.data.BarDataTPDotFigureData;
-import cfb.com.chartlibrary.interfaces.iData.IBarDataI;
+import cfb.com.chartlibrary.chart.TPBarChart;
+import cfb.com.chartlibrary.data.TPBarData;
+import cfb.com.chartlibrary.interfaces.iData.IBarData;
 import cfb.com.dailydevelopment4.R;
 
 public class BarChartActivity extends AppCompatActivity {
 
-    private ArrayList<IBarDataI> mDataList = new ArrayList<>();
-    private BarDataTPDotFigureData mBarData = new BarDataTPDotFigureData();
+    private ArrayList<IBarData> mDataList = new ArrayList<>();
+    private TPBarData mBarData = new TPBarData();
     private ArrayList<PointF> mPointArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bar_chasrt);
-        BarTPDotFigureChart barChart = (BarTPDotFigureChart)findViewById(R.id.barChart);
+        TPBarChart barChart = (TPBarChart)findViewById(R.id.barChart);
         initData();
 
         barChart.setDataList(mDataList);
-        barChart.setXAxisUnit("X单位");
+        barChart.setXAxisUnit("股东人数");
         barChart.setYAxisUnit("Y单位");
+        barChart.setBarWidth(60);
     }
 
     private void initData() {

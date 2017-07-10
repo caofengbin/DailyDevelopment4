@@ -3,13 +3,13 @@ package cfb.com.chartlibrary.render;
 import android.graphics.Canvas;
 
 /**
- * 描述：坐标轴渲染基类
+ * 可视化图表控件 -> 坐标轴的渲染类
  * Created by fengbincao on 2017/7/9.
  */
 
-public abstract class AxisTPRender extends TPRender {
+public abstract class TPAxisRender extends TPRender {
 
-    public AxisTPRender() {
+    public TPAxisRender() {
         super();
     }
 
