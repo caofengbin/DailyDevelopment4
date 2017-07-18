@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="cfb.com.dailydevelopment4"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cfb.com.dailydevelopment4">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,97 +13,92 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="Product"
-            android:value="${Channel_Value}"/>
+            android:value="${Channel_Value}" />
 
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".example1.multiplethread.MultipleThreadActivity"
             android:exported="false"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".example2.service.MyService"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true" />
 
         <activity
             android:name=".example2.service.ServiceActivity"
             android:exported="false"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".example3.bindservice.MyService2"
             android:enabled="true"
-            android:exported="true">
-        </service>
+            android:exported="true"></service>
 
-        <activity android:name=".example3.bindservice.BindServiceActivity">
-        </activity>
+        <activity
+            android:name=".example3.bindservice.BindServiceActivity"
+            android:enabled="true"
+            android:exported="true"></activity>
 
         <service
             android:name=".example3.bindservice.ForGroundService"
             android:enabled="true"
-            android:exported="true">
-        </service>
+            android:exported="true"></service>
         <service
             android:name=".example3.bindservice.MyIntentService"
             android:enabled="true"
-            android:exported="true">
-        </service>
+            android:exported="true"></service>
 
         <activity
             android:name=".example4.okhttp.UseOkHttpActivity"
             android:exported="false"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
 
         <service
             android:name=".example5.download.DownloadService"
             android:enabled="true"
-            android:exported="true">
-        </service>
+            android:exported="true"></service>
 
         <activity
             android:name=".example5.download.TestDownloadActivity"
             android:enabled="true"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".example6.drawtext.DrawTextActivity"
             android:enabled="true"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".example7.animation.AnimationActivity"
             android:enabled="true"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".example8.animation2.AnimationActivity2"
             android:enabled="true"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".example9.radar.RadarGraphActivity"
             android:enabled="true"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".example10.barchart.BarChartActivity"
             android:enabled="true"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
+        <activity
+            android:name=".example11.draw.TestDrawActivity"
+            android:enabled="true"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

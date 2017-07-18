@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import cfb.com.dailydevelopment4.example1.multiplethread.MultipleThreadActivity;
 import cfb.com.dailydevelopment4.example10.barchart.BarChartActivity;
+import cfb.com.dailydevelopment4.example11.draw.TestDrawActivity;
 import cfb.com.dailydevelopment4.example2.service.ServiceActivity;
 import cfb.com.dailydevelopment4.example3.bindservice.BindServiceActivity;
 import cfb.com.dailydevelopment4.example4.okhttp.UseOkHttpActivity;
@@ -73,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             case 9:
                 startIntent(BarChartActivity.class);
                 break;
+			case 10:
+				startIntent(TestDrawActivity.class);
+				break;
 		}
 	}
 
