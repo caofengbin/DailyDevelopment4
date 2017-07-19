@@ -12,8 +12,24 @@
         <item>(9) 雷达图样式</item>
         <item>(10) 柱状图样式</item>
         <item>(11) Paint的基本使用</item>
+        <item>(12) 使用ViewPagerIndicator</item>
     </string-array>
 
+
+    <string-array name="indicator_string_array">
+        <item>(1) 圆点样式的ViewPager Indicator</item>
+        <item>(2) Service的基本使用</item>
+        <item>(3) Activity与Service交互</item>
+        <item>(4) OkHttp的基本使用</item>
+        <item>(5) 断点续传的下载功能实现</item>
+        <item>(6) DrawText</item>
+        <item>(7) Android视图动画</item>
+        <item>(8) Android属性动画</item>
+        <item>(9) 雷达图样式</item>
+        <item>(10) 柱状图样式</item>
+        <item>(11) Paint的基本使用</item>
+        <item>(12) 使用ViewPagerIndicator</item>
+    </string-array>
 
     <string name="title_draw_color">drawColor()</string>
     <string name="title_draw_circle">drawCircle()</string>
@@ -27,4 +43,7 @@
     <string name="title_draw_histogram">直方图</string>
     <string name="title_draw_pie_chart">饼图</string>
 
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
 </resources>
