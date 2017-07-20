@@ -16,6 +16,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lineindicator="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
@@ -27,9 +28,15 @@
         android:layout_weight="1"
         />
     <cfb.com.dailydevelopment4.example12.library.LinePageIndicator
-        android:id="@+id/indicator"
+        android:id="@+id/line_indicator"
         android:padding="5dip"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
+        lineindicator:centered = "true"
+        lineindicator:gapWidth = "0dp"
+        lineindicator:strokeWidth = "3dp"
+        lineindicator:lineWidth = "20dp"
+        lineindicator:selectedColor="#3A83D7"
+        lineindicator:unselectedColor="#142C47"
         />
 </LinearLayout>

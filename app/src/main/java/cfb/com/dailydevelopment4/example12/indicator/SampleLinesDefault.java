@@ -17,7 +17,7 @@ public class SampleLinesDefault extends BaseSampleActivity {
         mPager = (ViewPager)findViewById(R.id.pager);
         mPager.setAdapter(mAdapter);
 
-        mIndicator = (LinePageIndicator)findViewById(R.id.indicator);
+        mIndicator = (LinePageIndicator)findViewById(R.id.line_indicator);
         mIndicator.setViewPager(mPager);
     }
 }
