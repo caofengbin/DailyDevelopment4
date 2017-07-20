@@ -53,7 +53,7 @@ public class IndicatorActivity extends AppCompatActivity implements
                 startIntent(SampleLinesDefault.class);
                 break;
             case 2:
-
+                startIntent(SampleUnderlinesNoFade.class);
                 break;
             case 3:
 

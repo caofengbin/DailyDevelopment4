@@ -16,6 +16,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:underlineindicator="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
@@ -26,9 +27,14 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         />
-    <com.viewpagerindicator.UnderlinePageIndicator
+    <cfb.com.dailydevelopment4.example12.library.UnderlinePageIndicator
         android:id="@+id/indicator"
-        android:layout_height="2dp"
+        android:layout_height="10dp"
         android:layout_width="fill_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        underlineindicator:fades="true"
+        underlineindicator:selectedColor="#3A83D7"
+        android:background="#142C47"
         />
 </LinearLayout>

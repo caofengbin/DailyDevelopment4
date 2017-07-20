@@ -103,6 +103,10 @@
             android:name=".example12.indicator.SampleLinesDefault"
             android:enabled="true"
             android:exported="true" />
+        <activity
+            android:name=".example12.indicator.SampleUnderlinesNoFade"
+            android:enabled="true"
+            android:exported="true" />
         <activity android:name=".example12.indicator.IndicatorActivity"></activity>
     </application>
 
