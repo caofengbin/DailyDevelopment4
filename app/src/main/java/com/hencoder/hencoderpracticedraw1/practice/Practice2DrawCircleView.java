@@ -15,6 +15,9 @@ public class Practice2DrawCircleView extends View {
 
     private Paint paint;
 
+    private static final String PRICE_DOT_COLOR = "#FFFFFF";                       // 价格点的颜色
+    private static final String PRICE_LINE_COLOR = "#EE8A20";                      // 价格线之间的连线
+
     public Practice2DrawCircleView(Context context) {
         super(context);
     }
@@ -40,25 +43,38 @@ public class Practice2DrawCircleView extends View {
         Log.d(TAG, "onDraw: 测量宽度为:" + totalWidth);
         Log.d(TAG, "onDraw: 测量高度为:" + totalHeight);
 
-        // 1.第一个圆，绘制实心的圆
-        canvas.drawCircle(totalWidth / 4, totalHeight / 4, totalWidth / 8, paint);
+        // 1.第一个圆，FILL模式
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor((Color.RED));
+        paint.setStrokeWidth(50);
+        canvas.drawCircle(totalWidth / 4, totalHeight / 4, totalWidth / 12, paint);
 
-        // 2.第二个圆，绘制空心的圆
+        // 2.第二个圆，STROKE模式
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(5);
-        canvas.drawCircle(totalWidth / 4 * 3, totalHeight / 4, totalWidth / 8, paint);
+        paint.setColor((Color.RED));
+        paint.setStrokeWidth(50);
+        canvas.drawCircle(totalWidth / 4 * 3, totalHeight / 4, totalWidth / 12, paint);
 
         // 3.第三个圆，绘制一个蓝色实心的圆形
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setColor(Color.BLUE);
-        canvas.drawCircle(totalWidth / 4, totalHeight / 4 * 3, totalWidth / 8, paint);
+        paint.setColor((Color.RED));
+        paint.setStrokeWidth(50);
+        canvas.drawCircle(totalWidth / 4, totalHeight / 4 * 3, totalWidth / 12, paint);
 
 
         // 4.第四个圆形，绘制一个同心圆
+        //绘制内圆
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint.setColor((Color.RED));
+        paint.setStrokeWidth(0);
+        canvas.drawCircle(totalWidth / 4 * 3, totalHeight / 4 * 3, 30, paint);
+
+        //绘制外圆(空心)
         paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(Color.RED);
-        paint.setStrokeWidth(40);
-        canvas.drawCircle(totalWidth / 4 * 3, totalHeight / 4 * 3, totalWidth / 8, paint);
+        paint.setColor(Color.parseColor(PRICE_LINE_COLOR));
+        // 注意设置setStrokeWidth的这一方法非常非常的重要
+        paint.setStrokeWidth(20);
+        canvas.drawCircle(totalWidth / 4 * 3, totalHeight / 4 * 3, 50, paint);
 
     }
 }

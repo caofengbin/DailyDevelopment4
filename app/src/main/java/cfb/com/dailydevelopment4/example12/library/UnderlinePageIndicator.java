@@ -60,16 +60,17 @@ public class UnderlinePageIndicator extends View implements PageIndicator {
     private boolean mIsDragging;
 
     private final Runnable mFadeRunnable = new Runnable() {
-      @Override public void run() {
-        if (!mFades) return;
+        @Override
+        public void run() {
+            if (!mFades) return;
 
-        final int alpha = Math.max(mPaint.getAlpha() - mFadeBy, 0);
-        mPaint.setAlpha(alpha);
-        invalidate();
-        if (alpha > 0) {
-          postDelayed(this, FADE_FRAME_MS);
+            final int alpha = Math.max(mPaint.getAlpha() - mFadeBy, 0);
+            mPaint.setAlpha(alpha);
+            invalidate();
+            if (alpha > 0) {
+                postDelayed(this, FADE_FRAME_MS);
+            }
         }
-      }
     };
 
     public UnderlinePageIndicator(Context context) {
@@ -102,7 +103,7 @@ public class UnderlinePageIndicator extends View implements PageIndicator {
 
         Drawable background = a.getDrawable(R.styleable.UnderlinePageIndicator_android_background);
         if (background != null) {
-          setBackgroundDrawable(background);
+            setBackgroundDrawable(background);
         }
 
         a.recycle();
@@ -279,7 +280,8 @@ public class UnderlinePageIndicator extends View implements PageIndicator {
         mViewPager.setOnPageChangeListener(this);
         invalidate();
         post(new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 if (mFades) {
                     post(mFadeRunnable);
                 }
@@ -356,7 +358,7 @@ public class UnderlinePageIndicator extends View implements PageIndicator {
 
     @Override
     public void onRestoreInstanceState(Parcelable state) {
-        SavedState savedState = (SavedState)state;
+        SavedState savedState = (SavedState) state;
         super.onRestoreInstanceState(savedState.getSuperState());
         mCurrentPage = savedState.currentPage;
         requestLayout();

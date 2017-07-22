@@ -31,6 +31,15 @@
         <item>(12) </item>
     </string-array>
 
+    <string-array name="name_array">
+        <item>(1) 字符串1</item>
+        <item>(2) 字符串2</item>
+        <item>(3) 字符串3</item>
+        <item>(4) 字符串4</item>
+        <item>(5) 字符串5</item>
+        <item>(6) 字符串6</item>
+    </string-array>
+
     <string name="title_draw_color">drawColor()</string>
     <string name="title_draw_circle">drawCircle()</string>
     <string name="title_draw_rect">drawRect()</string>
