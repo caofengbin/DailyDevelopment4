@@ -66,14 +66,8 @@ public class RootFrameLayout extends FrameLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public RootFrameLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-    }
-
     public void setStatusLayoutManager(StatusLayoutManager statusLayoutManager) {
         mStatusLayoutManager = statusLayoutManager;
-
         addAllLayoutToRootLayout();
     }
 

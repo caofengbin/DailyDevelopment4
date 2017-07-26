@@ -14,18 +14,22 @@ public class StatusLayoutManager {
 
     final Context context;
 
+    // 无网络状态的相关设置
     final ViewStub netWorkErrorViewStub;
-    final int netWorkErrorRetryViewId;
+    final int netWorkErrorRetryViewId;              // 无网络状态的重试按钮
 
+    // 无数据状态的相关设置
     final ViewStub emptyDataViewStub;
-    final int emptyDataRetryViewId;
+    final int emptyDataRetryViewId;                 // 无数据状态的重试按钮
 
+    // 请求错误状态的相关设置
     final ViewStub errorViewStub;
-    final int errorRetryViewId;
+    final int errorRetryViewId;                     // 请求错误状态的重试按钮
 
-    final int loadingLayoutResId;
-    final int contentLayoutResId;
-    final int retryViewId;
+    final int retryViewId;                          // 优先级最高的一个重试按钮
+
+    final int loadingLayoutResId;                   // loading界面的布局id
+    final int contentLayoutResId;                   // 正常显示内容界面的布局id
 
     final int emptyDataIconImageId;
     final int emptyDataTextTipId;
@@ -38,6 +42,7 @@ public class StatusLayoutManager {
 
 
     final RootFrameLayout rootFrameLayout;
+
     final OnShowHideViewListener onShowHideViewListener;
     final OnRetryListener onRetryListener;
 
